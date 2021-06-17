@@ -1,0 +1,45 @@
+// Colors
+$background1: #000000;
+$background2: #161616;
+$background3: #e41f7b;
+$background4: #ff8ba0;
+$text1: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    color: $text1;
+}
+body {
+    background-color: $background1;
+}
+.margin {
+    margin: 150px 20%;
+}
+
+.initial {
+    &__div {
+        background-color: $background2;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    &__first {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__second {
+        margin-top: 20px;
+    }
+
+    &__title {
+        margin-bottom: 35px;
+        font-size: 1.875rem;
+        text-align: center;
+    }
+}
