@@ -27,6 +27,8 @@ body {
 }
 
 .initial {
+    // display: none;
+
     &__div {
         background-color: $background2;
         border-radius: 5px;
@@ -87,5 +89,21 @@ body {
         margin-top: 50px;
         display: flex;
         justify-content: space-around;
+    }
+
+    &__checkbox-div {
+        background-color: $background3;
+        border-radius: 5px;
+        width: 150px;
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__checkbox-text {
+        font-weight: bold;
+        color: $text4;
+        padding-right: 10px;
     }
 }
