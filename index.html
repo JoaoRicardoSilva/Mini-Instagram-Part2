@@ -19,7 +19,7 @@
         <div class="margin">
             <!-- Log in/Sign up area -->
             <div class="initial">
-                <div class="initial__div initial__first">
+                <div class="generic__back1 initial__first">
                     <i class="fab fa-instagram initial__icon"></i>
                     <h1 class="initial__title">Instagram</h1>
                     <form class="initial__box">
@@ -55,10 +55,12 @@
                         />
                     </form>
 
-                    <button class="initial__button">Submit</button>
+                    <button class="initial__button generic__button1">
+                        Submit
+                    </button>
                 </div>
 
-                <div class="initial__div initial__second">
+                <div class="generic__back1 initial__second">
                     <div class="initial__checkbox-div">
                         <p class="initial__checkbox-text">Sign Up</p>
                         <input type="checkbox" class="initial__checkbox" />
@@ -69,19 +71,40 @@
                     </div>
                 </div>
             </div>
-            <!-- Logged area -->
-            <form class="logged">
-                <button class="logged__button">My Profile</button>
-                <button class="logged__button">Log Out</button>
 
-                <input
-                    type="email"
-                    class="logged__input"
-                    placeholder="User's email"
-                />
-                <button class="logged__button">Search</button>
-                <button class="logged__button">Follow</button>
-            </form>
+            <!-- Logged area -->
+            <div class="logged generic__back1">
+                <form action="" class="logged__nav-bar">
+                    <button class="logged__button">My Profile</button>
+                    <button class="logged__button">Log Out</button>
+                </form>
+
+                <form class="logged__search-bar">
+                    <input
+                        type="email"
+                        class="logged__input"
+                        placeholder="User's email"
+                    />
+                    <button class="logged__button">Search</button>
+                    <button class="logged__button">Follow</button>
+                </form>
+
+                <form action="" class="logged__publish-bar">
+                    <p class="logged__text">Photo URL</p>
+                    <input type="url" class="logged__input" />
+                    <p class="logged__text">Description</p>
+                    <input type="text" class="logged__input" />
+                </form>
+            </div>
+
+            <div class="logged__profile">
+                <p class="logged__profile__text">Name:</p>
+                <p class="logged__profile__text">João</p>
+                <p class="logged__profile__text">Followers:</p>
+                <p class="logged__profile__text">0</p>
+                <p class="logged__profile__text">Following:</p>
+                <p class="logged__profile__text">0</p>
+            </div>
         </div>
 
         <script src="" async defer></script>

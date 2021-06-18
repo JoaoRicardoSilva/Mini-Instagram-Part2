@@ -17,10 +17,17 @@ body {
   margin: 150px auto;
 }
 
-.initial__div {
+.generic__back1 {
   background-color: #161616;
   border-radius: 5px;
   padding: 30px;
+}
+
+.generic__button1 {
+  width: 100px;
+  border: 2px solid #ff8ba0;
+  background-color: #3f3f3f;
+  border-radius: 5px;
 }
 
 .initial__first {
@@ -69,13 +76,6 @@ body {
   width: 100%;
   border-radius: 5px;
   border: 2px solid #ff8ba0;
-}
-
-.initial__button {
-  width: 100px;
-  border: 2px solid #ff8ba0;
-  background-color: #3f3f3f;
-  border-radius: 5px;
 }
 
 .initial__second {
