@@ -143,4 +143,12 @@ body {
 .logged__publish-bar {
   margin-top: 20px;
 }
+
+.logged__description-text {
+  margin-top: 5px;
+}
+
+.logged__description-input {
+  height: 100px;
+}
 /*# sourceMappingURL=styles.css.map */
