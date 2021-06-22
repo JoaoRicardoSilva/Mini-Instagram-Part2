@@ -43,6 +43,14 @@ body {
   color: #d3d3d3;
 }
 
+.dom__display-on {
+  display: initial;
+}
+
+.dom__display-off {
+  display: none;
+}
+
 .initial__first {
   display: -webkit-box;
   display: -ms-flexbox;

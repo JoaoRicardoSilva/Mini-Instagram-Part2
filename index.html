@@ -38,7 +38,9 @@
                             placeholder="Password"
                         />
                     </form>
-                    <form class="initial__box">
+                    <form
+                        class="initial__box dom__display-off initial__name-id"
+                    >
                         <p class="generic__text">Name</p>
                         <input
                             type="text"
@@ -46,7 +48,9 @@
                             placeholder="Name"
                         />
                     </form>
-                    <form class="initial__box">
+                    <form
+                        class="initial__box dom__display-off initial__name-id"
+                    >
                         <p class="generic__text">ID/Username</p>
                         <input
                             type="text"
@@ -60,18 +64,24 @@
 
                 <div class="generic__back1 initial__second">
                     <div class="initial__checkbox-div">
-                        <p class="initial__checkbox-text">Sign Up</p>
-                        <input type="checkbox" class="initial__checkbox" />
+                        <p class="initial__checkbox-text">Log in</p>
+                        <input
+                            type="checkbox"
+                            class="initial__checkbox"
+                            checked
+                        />
                     </div>
                     <div class="initial__checkbox-div">
-                        <p class="initial__checkbox-text">Log in</p>
+                        <p class="initial__checkbox-text" id="initial__sign-up">
+                            Sign Up
+                        </p>
                         <input type="checkbox" class="initial__checkbox" />
                     </div>
                 </div>
             </div>
 
             <!-- Logged area -->
-            <div class="generic__back1">
+            <div class="logged generic__back1 dom__display-off">
                 <form action="" class="logged__nav-bar">
                     <button class="generic__button1">My Profile</button>
                     <button class="generic__button1">Log Out</button>
@@ -113,5 +123,6 @@
         </div>
 
         <script src="" async defer></script>
+        <script src="/dom.js" async defer></script>
     </body>
 </html>

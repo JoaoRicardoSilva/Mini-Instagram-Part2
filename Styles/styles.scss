@@ -56,9 +56,18 @@ body {
     }
 }
 
-.initial {
-    // display: none;
+// Classes for DOM
+.dom {
+    &__display-on {
+        display: initial;
+    }
 
+    &__display-off {
+        display: none;
+    }
+}
+
+.initial {
     // initial__first
     &__first {
         display: flex;
@@ -116,8 +125,6 @@ body {
 }
 
 .logged {
-    // display: none;
-
     &__nav-bar {
         display: flex;
         justify-content: space-around;
