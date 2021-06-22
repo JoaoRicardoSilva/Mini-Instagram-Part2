@@ -63,20 +63,25 @@
                 </div>
 
                 <div class="generic__back1 initial__second">
-                    <div class="initial__checkbox-div">
+                    <form class="initial__checkbox-div">
                         <p class="initial__checkbox-text">Log in</p>
                         <input
                             type="checkbox"
                             class="initial__checkbox"
+                            id="initial__log-in-check"
+                            onclick="uncheckSignUp()"
                             checked
                         />
-                    </div>
-                    <div class="initial__checkbox-div">
-                        <p class="initial__checkbox-text" id="initial__sign-up">
-                            Sign Up
-                        </p>
-                        <input type="checkbox" class="initial__checkbox" />
-                    </div>
+                    </form>
+                    <form class="initial__checkbox-div">
+                        <p class="initial__checkbox-text">Sign Up</p>
+                        <input
+                            type="checkbox"
+                            class="initial__checkbox"
+                            id="initial__sign-up-check"
+                            onclick="uncheckLogIn()"
+                        />
+                    </form>
                 </div>
             </div>
 
