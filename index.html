@@ -28,6 +28,7 @@
                             type="email"
                             class="generic__input"
                             placeholder="Email"
+                            id="dom__email"
                         />
                     </form>
                     <form class="initial__box">
@@ -36,17 +37,25 @@
                             type="text"
                             class="generic__input"
                             placeholder="Password"
+                            id="dom__pass"
                         />
                     </form>
-                    <form class="initial__box dom__display-off" id="dom__name">
+                    <form
+                        class="initial__box dom__display-off"
+                        id="dom__name-div"
+                    >
                         <p class="generic__text">Name</p>
                         <input
                             type="text"
                             class="generic__input"
                             placeholder="Name"
+                            id="dom__name"
                         />
                     </form>
-                    <form class="initial__box dom__display-off" id="dom__id">
+                    <form
+                        class="initial__box dom__display-off"
+                        id="dom__id-div"
+                    >
                         <p class="generic__text">ID/Username</p>
                         <input
                             type="text"
@@ -71,7 +80,7 @@
                             type="checkbox"
                             class="initial__checkbox"
                             id="initial__log-in-check"
-                            onclick="logIn()"
+                            onclick="logInDom()"
                             checked
                         />
                     </form>
@@ -81,54 +90,16 @@
                             type="checkbox"
                             class="initial__checkbox"
                             id="initial__sign-up-check"
-                            onclick="signUp()"
+                            onclick="signUpDom()"
                         />
                     </form>
                 </div>
             </div>
 
             <!-- Logged area -->
-            <div class="logged generic__back1 dom__display-off">
-                <form action="" class="logged__nav-bar">
-                    <button class="generic__button1">My Profile</button>
-                    <button class="generic__button1">Log Out</button>
-                </form>
 
-                <form class="logged__search-bar">
-                    <input
-                        type="email"
-                        class="generic__input"
-                        placeholder="User's email"
-                    />
-                    <div class="logged__search-bar__buttons">
-                        <button class="generic__button1">Search</button>
-                        <button class="generic__button1">Follow</button>
-                    </div>
-                </form>
-
-                <form action="" class="logged__publish-bar">
-                    <p class="generic__text">Photo URL</p>
-                    <input type="url" class="generic__input" />
-                    <p class="generic__text logged__description-text">
-                        Description
-                    </p>
-                    <input
-                        type="text"
-                        class="generic__input logged__description-input"
-                    />
-                </form>
-
-                <div class="logged__profile">
-                    <p class="logged__profile__text">Name:</p>
-                    <p class="logged__profile__text">João</p>
-                    <p class="logged__profile__text">Followers:</p>
-                    <p class="logged__profile__text">0</p>
-                    <p class="logged__profile__text">Following:</p>
-                    <p class="logged__profile__text">0</p>
-                </div>
-            </div>
+            <div id="include"></div>
         </div>
-
         <script src="/main.js" async defer></script>
         <script src="/dom.js" async defer></script>
     </body>

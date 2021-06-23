@@ -32,12 +32,12 @@ const logIn = () => {
     //If is someone already online
     if (online) {
         alert("You are already logged in");
-        alert("");
         return;
     }
 
-    email = askUser("Enter your email!").trim();
-    pass = askUser("Enter your password!");
+    email = document.querySelector("#dom__email").value;
+    email = email.trim();
+    pass = document.querySelector("#dom__pass").value;
 
     // Check if email exist in memory
     const checkEmail = () => {
@@ -52,7 +52,6 @@ const logIn = () => {
     //If email doesn't exist
     if (index < 0) {
         alert("We don't have that account");
-        alert("");
         return;
     }
 
@@ -60,7 +59,6 @@ const logIn = () => {
     if (index > -1) {
         if (memory[index].password !== pass) {
             alert("The password is incorrect");
-            alert("");
             return;
         }
     }
@@ -69,7 +67,6 @@ const logIn = () => {
     //Save outside this function the index in memory of the user that logged
     indexUser = index;
     alert(`Welcome, ${memory[index].name}.`);
-    alert("");
     return;
 };
 
@@ -77,18 +74,18 @@ const logIn = () => {
 const signUp = () => {
     let name;
     let email;
-    let password;
+    let password = document.querySelector("#dom__pass").value;
     let stop = false;
 
     //Check if someone is online
     if (online) {
         alert("log out first before you create a new account");
-        alert("");
         return true;
     }
 
-    name = askUser("Enter your name!");
-    email = askUser("Enter your email!").trim();
+    name = document.querySelector("#dom__name").value;
+    email = document.querySelector("#dom__email").value;
+    email = email.trim();
 
     let emailLoop = () => {
         //Command for exit askEmail
@@ -140,6 +137,8 @@ const signUp = () => {
     const newProfile = new User(name, email, password);
 
     alert("Thank you for your registration, welcome!");
+
+    loggedArea.html;
 
     memory.push(newProfile);
     return;
