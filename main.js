@@ -77,6 +77,7 @@ const logIn = () => {
 const signUp = () => {
     let name;
     let email;
+    let password;
     let stop = false;
 
     //Check if someone is online
@@ -136,10 +137,9 @@ const signUp = () => {
     }
 
     // Create a new user based on User class
-    const newProfile = new User(name, email, askUser("Enter your password!"));
+    const newProfile = new User(name, email, password);
 
     alert("Thank you for your registration, welcome!");
-    alert("");
 
     memory.push(newProfile);
     return;
@@ -291,4 +291,4 @@ const commandsSwitch = () => {
             break;
     }
 };
-commandsSwitch();
+// commandsSwitch();

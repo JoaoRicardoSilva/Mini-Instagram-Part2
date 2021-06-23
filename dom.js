@@ -14,4 +14,12 @@ const signUp = () => {
     document.querySelector("#dom__id").classList.remove("dom__display-off");
 };
 
+const submit = () => {
+    if (document.querySelector("#initial__sign-up-check").checked) {
+        signUp()
+    }
 
+    if (document.querySelector("#initial__log-in-check").checked) {
+        
+    }
+};
