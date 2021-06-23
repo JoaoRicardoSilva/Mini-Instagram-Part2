@@ -38,9 +38,7 @@
                             placeholder="Password"
                         />
                     </form>
-                    <form
-                        class="initial__box dom__display-off initial__name-id"
-                    >
+                    <form class="initial__box dom__display-off" id="dom__name">
                         <p class="generic__text">Name</p>
                         <input
                             type="text"
@@ -48,9 +46,7 @@
                             placeholder="Name"
                         />
                     </form>
-                    <form
-                        class="initial__box dom__display-off initial__name-id"
-                    >
+                    <form class="initial__box dom__display-off" id="dom__id">
                         <p class="generic__text">ID/Username</p>
                         <input
                             type="text"
@@ -69,7 +65,7 @@
                             type="checkbox"
                             class="initial__checkbox"
                             id="initial__log-in-check"
-                            onclick="uncheckSignUp()"
+                            onclick="logIn()"
                             checked
                         />
                     </form>
@@ -79,7 +75,7 @@
                             type="checkbox"
                             class="initial__checkbox"
                             id="initial__sign-up-check"
-                            onclick="uncheckLogIn()"
+                            onclick="signUp()"
                         />
                     </form>
                 </div>
@@ -127,7 +123,7 @@
             </div>
         </div>
 
-        <script src="" async defer></script>
+        <script src="/main.js" async defer></script>
         <script src="/dom.js" async defer></script>
     </body>
 </html>

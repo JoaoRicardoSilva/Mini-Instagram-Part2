@@ -1,12 +1,17 @@
 "use strict";
 
-const uncheckSignUp = () => {
+// Log in/Sign up area
+
+const logIn = () => {
     document.querySelector("#initial__sign-up-check").checked = false;
+    document.querySelector("#dom__name").classList.add("dom__display-off");
+    document.querySelector("#dom__id").classList.add("dom__display-off");
 };
 
-const uncheckLogIn = () => {
+const signUp = () => {
     document.querySelector("#initial__log-in-check").checked = false;
-    document
-        .querySelector(".initial__name-id")
-        .classList.remove("dom__display-off");
+    document.querySelector("#dom__name").classList.remove("dom__display-off");
+    document.querySelector("#dom__id").classList.remove("dom__display-off");
 };
+
+
