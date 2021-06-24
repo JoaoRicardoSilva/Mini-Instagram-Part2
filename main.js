@@ -67,6 +67,13 @@ const logIn = () => {
     //Save outside this function the index in memory of the user that logged
     indexUser = index;
     alert(`Welcome, ${memory[index].name}.`);
+    alert("");
+
+    const showName = () => {
+        document.querySelector("#dom__profile-name").innerHTML =
+            memory[index].name;
+    };
+    showName();
     return;
 };
 
@@ -156,7 +163,6 @@ const search = () => {
     const log0 = () => {
         if (online === false) {
             alert("Sorry, you have to be logged in to use that functionality");
-            alert("");
             return true;
         }
     };
@@ -164,7 +170,8 @@ const search = () => {
         return;
     }
 
-    email = askUser("Enter your email").trim();
+    email = document.querySelector("#dom__search-email").value;
+    email = email.trim();
 
     // Check if email exist in memory
     const checkEmail = () => {
@@ -184,10 +191,15 @@ const search = () => {
         return;
     }
 
-    alert(
-        `${memory[index].name}\n${memory[index].email}\nFollowers: ${memory[index].followers}\nFollowing: ${memory[index].following}`
-    );
-    alert("");
+    const showInformation = () => {
+        document.querySelector("#dom__profile-name").innerHTML =
+            memory[index].name;
+        document.querySelector("#dom__profile-followers").innerHTML =
+            memory[index].followers;
+        document.querySelector("#dom__profile-following").innerHTML =
+            memory[index].following;
+    };
+    showInformation();
 };
 // COMMAND LOG OUT
 const logOut = () => {
@@ -206,16 +218,16 @@ const logOut = () => {
 
 // Command Follow
 const follow = () => {
+    let index = -1;
+
     if (online === false) {
         alert("Sorry, you have to be logged in to use that functionality");
-        alert("");
         return;
     }
 
     const followEmail = askUser(
         "What's the email of the person that you want to folloW?"
     );
-    let index = -1;
 
     //Check if email already exist
     const emailExist = () => {
@@ -227,7 +239,6 @@ const follow = () => {
 
         if (index === -1) {
             alert("That user does not exist");
-            alert("");
             return true;
         }
     };
@@ -242,7 +253,6 @@ const follow = () => {
     memory[indexUser].following++;
 
     alert(`You now follow ${memory[index].name}`);
-    alert("");
 };
 
 // CHECK AND EXECUTE THE COMMANDS
