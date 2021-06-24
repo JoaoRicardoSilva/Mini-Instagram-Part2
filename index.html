@@ -88,7 +88,7 @@
             </div>
 
             <!-- Logged area -->
-            <div class="logged generic__back1 dom__display-off">
+            <div class="logged generic__back1">
                 <form action="" class="logged__nav-bar">
                     <button class="generic__button1">My Profile</button>
                     <button class="generic__button1">Log Out</button>
@@ -99,9 +99,12 @@
                         type="email"
                         class="generic__input"
                         placeholder="User's email"
+                        id="dom__search-email"
                     />
                     <div class="logged__search-bar__buttons">
-                        <button class="generic__button1">Search</button>
+                        <button class="generic__button1" onclick="search()">
+                            Search
+                        </button>
                         <button class="generic__button1">Follow</button>
                     </div>
                 </form>
@@ -120,11 +123,17 @@
 
                 <div class="logged__profile">
                     <p class="logged__profile__text">Name:</p>
-                    <p class="logged__profile__text">João</p>
+                    <p class="logged__profile__text" id="dom__profile-name"></p>
                     <p class="logged__profile__text">Followers:</p>
-                    <p class="logged__profile__text">0</p>
+                    <p
+                        class="logged__profile__text"
+                        id="dom__profile-followers"
+                    ></p>
                     <p class="logged__profile__text">Following:</p>
-                    <p class="logged__profile__text">0</p>
+                    <p
+                        class="logged__profile__text"
+                        id="dom__profile-following"
+                    ></p>
                 </div>
             </div>
         </div>

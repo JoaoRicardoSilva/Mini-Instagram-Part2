@@ -16,10 +16,9 @@ const signUp = () => {
 
 const submit = () => {
     if (document.querySelector("#initial__sign-up-check").checked) {
-        signUp()
+        signUp();
     }
 
     if (document.querySelector("#initial__log-in-check").checked) {
-        
     }
 };
