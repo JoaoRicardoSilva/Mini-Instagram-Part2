@@ -124,12 +124,6 @@ body {
       justify-content: space-around;
 }
 
-.logged__profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .logged__search-bar {
   margin-top: 20px;
 }
@@ -154,5 +148,25 @@ body {
 
 .logged__description-input {
   height: 100px;
+}
+
+.logged__profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 10px;
+  background-color: #3f3f3f;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.logged__profile__text {
+  color: #ff8ba0;
+}
+
+.logged__profile__text span {
+  color: #ffffff;
 }
 /*# sourceMappingURL=styles.css.map */

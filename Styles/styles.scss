@@ -126,10 +126,6 @@ body {
         justify-content: space-around;
     }
 
-    &__profile {
-        display: flex;
-    }
-
     &__search-bar {
         margin-top: 20px;
 
@@ -150,5 +146,22 @@ body {
 
     &__description-input {
         height: 100px;
+    }
+
+    &__profile {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        background-color: $background3;
+        padding: 10px;
+        border-radius: $border-radius;
+
+        &__text {
+            color: $text4;
+
+            & span {
+                color: $text1;
+            }
+        }
     }
 }

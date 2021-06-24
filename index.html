@@ -114,7 +114,9 @@
                         <button class="generic__button1" onclick="search()">
                             Search
                         </button>
-                        <button class="generic__button1">Follow</button>
+                        <button class="generic__button1" onclick="follow()">
+                            Follow
+                        </button>
                     </div>
                 </form>
 
@@ -131,18 +133,21 @@
                 </form>
 
                 <div class="logged__profile">
-                    <p class="logged__profile__text">Name:</p>
-                    <p class="logged__profile__text" id="dom__profile-name"></p>
-                    <p class="logged__profile__text">Followers:</p>
-                    <p
-                        class="logged__profile__text"
-                        id="dom__profile-followers"
-                    ></p>
-                    <p class="logged__profile__text">Following:</p>
-                    <p
-                        class="logged__profile__text"
-                        id="dom__profile-following"
-                    ></p>
+                    <div class="logged__profile-div">
+                        <p class="logged__profile__text">
+                            Name: <span id="dom__profile-name"></span>
+                        </p>
+                    </div>
+                    <div class="logged__profile-div">
+                        <p class="logged__profile__text">
+                            Followers: <span id="dom__profile-followers"></span>
+                        </p>
+                    </div>
+                    <div class="logged__profile-div">
+                        <p class="logged__profile__text">
+                            Following: <span id="dom__profile-following"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

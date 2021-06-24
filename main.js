@@ -23,6 +23,15 @@ let indexUser = -1;
 // Generic function for the user give some input
 const askUser = (str) => window.prompt(str);
 
+// Function that update status of profile
+const showInformation = (index) => {
+    document.querySelector("#dom__profile-name").innerHTML = memory[index].name;
+    document.querySelector("#dom__profile-followers").innerHTML =
+        memory[index].followers;
+    document.querySelector("#dom__profile-following").innerHTML =
+        memory[index].following;
+};
+
 // COMMAND LOG IN
 const logIn = () => {
     let index = -1;
@@ -67,13 +76,8 @@ const logIn = () => {
     //Save outside this function the index in memory of the user that logged
     indexUser = index;
     alert(`Welcome, ${memory[index].name}.`);
-    alert("");
 
-    const showName = () => {
-        document.querySelector("#dom__profile-name").innerHTML =
-            memory[index].name;
-    };
-    showName();
+    showInformation(indexUser);
     return;
 };
 
@@ -91,8 +95,7 @@ const signUp = () => {
     }
 
     name = document.querySelector("#dom__name").value;
-    email = document.querySelector("#dom__email").value;
-    email = email.trim();
+    email = document.querySelector("#dom__email").value.trim("");
 
     let emailLoop = () => {
         //Command for exit askEmail
@@ -108,7 +111,6 @@ const signUp = () => {
             )
         ) {
             alert("Insert a valid email");
-            alert("");
             return true;
         }
 
@@ -123,7 +125,6 @@ const signUp = () => {
             console.log({ memory });
             if (n === 1) {
                 alert("Sorry, that email is already taken");
-                alert("");
                 return true;
             }
         };
@@ -131,9 +132,8 @@ const signUp = () => {
             return true;
         }
     };
-
-    while (emailLoop()) {
-        email = askUser("Enter your email!");
+    if (emailLoop()) {
+        return;
     }
 
     if (stop === true) {
@@ -144,8 +144,6 @@ const signUp = () => {
     const newProfile = new User(name, email, password);
 
     alert("Thank you for your registration, welcome!");
-
-    loggedArea.html;
 
     memory.push(newProfile);
     return;
@@ -170,8 +168,7 @@ const search = () => {
         return;
     }
 
-    email = document.querySelector("#dom__search-email").value;
-    email = email.trim();
+    email = document.querySelector("#dom__search-email").value.trim("");
 
     // Check if email exist in memory
     const checkEmail = () => {
@@ -191,15 +188,7 @@ const search = () => {
         return;
     }
 
-    const showInformation = () => {
-        document.querySelector("#dom__profile-name").innerHTML =
-            memory[index].name;
-        document.querySelector("#dom__profile-followers").innerHTML =
-            memory[index].followers;
-        document.querySelector("#dom__profile-following").innerHTML =
-            memory[index].following;
-    };
-    showInformation();
+    showInformation(index);
 };
 // COMMAND LOG OUT
 const logOut = () => {
@@ -219,15 +208,14 @@ const logOut = () => {
 // Command Follow
 const follow = () => {
     let index = -1;
+    let followEmail = document
+        .querySelector("#dom__search-email")
+        .value.trim("");
 
     if (online === false) {
         alert("Sorry, you have to be logged in to use that functionality");
         return;
     }
-
-    const followEmail = askUser(
-        "What's the email of the person that you want to folloW?"
-    );
 
     //Check if email already exist
     const emailExist = () => {
@@ -253,6 +241,7 @@ const follow = () => {
     memory[indexUser].following++;
 
     alert(`You now follow ${memory[index].name}`);
+    return;
 };
 
 // CHECK AND EXECUTE THE COMMANDS
