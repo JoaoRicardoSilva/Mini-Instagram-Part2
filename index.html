@@ -122,14 +122,25 @@
 
                 <form action="" class="logged__publish-bar">
                     <p class="generic__text">Photo URL</p>
-                    <input type="url" class="generic__input" />
+                    <input
+                        type="url"
+                        class="generic__input"
+                        id="dom__photo-url"
+                    />
                     <p class="generic__text logged__description-text">
                         Description
                     </p>
                     <input
                         type="text"
                         class="generic__input logged__description-input"
+                        id="dom__photo-desc"
                     />
+                    <button
+                        class="generic__button1 logged__publish-btn"
+                        onclick=""
+                    >
+                        Publish
+                    </button>
                 </form>
 
                 <div class="logged__profile">
@@ -147,6 +158,24 @@
                         <p class="logged__profile__text">
                             Following: <span id="dom__profile-following"></span>
                         </p>
+                    </div>
+                </div>
+                <div class="logged__back-img">
+                    <div class="logged__img-box">
+                        <img
+                            src="https://uploads0.wikiart.org/images/leonardo-da-vinci.jpg!Portrait.jpg"
+                            alt=""
+                            class="logged__img"
+                        />
+                        <p class="logged__img-desc">Leonardo da Vinci</p>
+                    </div>
+                    <div class="logged__img-box">
+                        <img
+                            src="https://aventurasnahistoria.uol.com.br/media/_versions/copernicocapa4253_widexl.jpg"
+                            alt=""
+                            class="logged__img"
+                        />
+                        <p class="logged__img-desc">Copernico</p>
                     </div>
                 </div>
             </div>
