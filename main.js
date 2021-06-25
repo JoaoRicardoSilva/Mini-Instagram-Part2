@@ -247,4 +247,16 @@ const follow = () => {
 const publish = () => {
     const url = document.querySelector("#dom__photo-url").value;
     const desc = document.querySelector("#dom__photo-desc").value;
+    console.log({ desc });
+    const domBackImg = document.querySelector("#dom__back-img");
+
+    domBackImg.classList.add("logged__back-img");
+    domBackImg.createElement("div").classList.add("logged__img-box");
+
+    document.querySelector("logged__img-box").innerHTML = `
+    <img
+        src="${url}"
+        alt=""class="logged__img" />
+        <p class="logged__img-desc">${desc}</p>`;
+    return;
 };

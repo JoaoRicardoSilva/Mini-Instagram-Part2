@@ -137,7 +137,8 @@
                     />
                     <button
                         class="generic__button1 logged__publish-btn"
-                        onclick=""
+                        onclick="publish()"
+                        type="button"
                     >
                         Publish
                     </button>
@@ -160,24 +161,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="logged__back-img">
-                    <div class="logged__img-box">
-                        <img
-                            src="https://uploads0.wikiart.org/images/leonardo-da-vinci.jpg!Portrait.jpg"
-                            alt=""
-                            class="logged__img"
-                        />
-                        <p class="logged__img-desc">Leonardo da Vinci</p>
-                    </div>
-                    <div class="logged__img-box">
-                        <img
-                            src="https://aventurasnahistoria.uol.com.br/media/_versions/copernicocapa4253_widexl.jpg"
-                            alt=""
-                            class="logged__img"
-                        />
-                        <p class="logged__img-desc">Copernico</p>
-                    </div>
-                </div>
+                <div id="dom__back-img"></div>
             </div>
         </div>
         <script src="/main.js" async defer></script>
