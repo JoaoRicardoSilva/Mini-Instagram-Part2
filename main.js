@@ -24,11 +24,184 @@ let indexUser = -1;
 // Generic function for the user give some input
 const askUser = (str) => window.prompt(str);
 
-//
-const domBackImg = document.querySelector("#dom__back-img");
+// HTML: part1- login page; part2- profile page
+let htmlObj = {
+    part1: `
+<div class="initial">
+                <div class="generic__back1 initial__first">
+                    <i class="fab fa-instagram initial__icon"></i>
+                    <h1 class="initial__title">Instagram</h1>
+                    <form class="initial__box">
+                        <p class="generic__text">Email</p>
+                        <input
+                            type="email"
+                            class="generic__input"
+                            placeholder="Email"
+                            id="dom__email"
+                        />
+                    </form>
+                    <form class="initial__box">
+                        <p class="generic__text">Password</p>
+                        <input
+                            type="text"
+                            class="generic__input"
+                            placeholder="Password"
+                            id="dom__pass"
+                        />
+                    </form>
+                    <form
+                        class="initial__box dom__display-off"
+                        id="dom__name-div"
+                    >
+                        <p class="generic__text">Name</p>
+                        <input
+                            type="text"
+                            class="generic__input"
+                            placeholder="Name"
+                            id="dom__name"
+                        />
+                    </form>
+                    <form
+                        class="initial__box dom__display-off"
+                        id="dom__id-div"
+                    >
+                        <p class="generic__text">ID/Username</p>
+                        <input
+                            type="text"
+                            class="generic__input"
+                            placeholder="Username"
+                        />
+                    </form>
 
-//
-let htmlPart1 = ``;
+                    <button
+                        class="generic__button1"
+                        id="dom__submit"
+                        onclick="submit()"
+                    >
+                        Submit
+                    </button>
+                </div>
+
+                <div class="generic__back1 initial__second">
+                    <form class="initial__checkbox-div">
+                        <p class="initial__checkbox-text">Log in</p>
+                        <input
+                            type="checkbox"
+                            class="initial__checkbox"
+                            id="initial__log-in-check"
+                            onclick="logInDom()"
+                            checked
+                        />
+                    </form>
+                    <form class="initial__checkbox-div">
+                        <p class="initial__checkbox-text">Sign Up</p>
+                        <input
+                            type="checkbox"
+                            class="initial__checkbox"
+                            id="initial__sign-up-check"
+                            onclick="signUpDom()"
+                        />
+                    </form>
+                </div>
+            </div>`,
+
+    part2: `
+<div class="logged generic__back1">
+                <form action="" class="logged__nav-bar">
+                    <button
+                        class="generic__button1"
+                        type="button"
+                        onclick="myProfile()"
+                    >
+                        My Profile
+                    </button>
+                    <button
+                        class="generic__button1"
+                        type="button"
+                        onclick="logOut()"
+                    >
+                        Log Out
+                    </button>
+                </form>
+
+                <form class="logged__search-bar">
+                    <input
+                        type="email"
+                        class="generic__input"
+                        placeholder="User's email"
+                        id="dom__search-email"
+                    />
+                    <div class="logged__search-bar__buttons">
+                        <button
+                            class="generic__button1"
+                            type="button"
+                            onclick="search()"
+                        >
+                            Search
+                        </button>
+                        <button
+                            class="generic__button1"
+                            type="button"
+                            onclick="follow()"
+                        >
+                            Follow
+                        </button>
+                    </div>
+                </form>
+
+                <form action="" class="logged__publish-bar">
+                    <p class="generic__text">Photo URL</p>
+                    <input
+                        type="url"
+                        class="generic__input"
+                        id="dom__photo-url"
+                    />
+                    <p class="generic__text logged__description-text">
+                        Description
+                    </p>
+                    <input
+                        type="text"
+                        class="generic__input logged__description-input"
+                        id="dom__photo-desc"
+                    />
+                    <button
+                        class="generic__button1 logged__publish-btn"
+                        onclick="publish()"
+                        type="button"
+                    >
+                        Publish
+                    </button>
+                </form>
+
+                <div class="logged__profile">
+                    <div class="logged__profile-div">
+                        <p class="logged__profile__text">
+                            Name: <span id="dom__profile-name"></span>
+                        </p>
+                    </div>
+                    <div class="logged__profile-div">
+                        <p class="logged__profile__text">
+                            Followers: <span id="dom__profile-followers"></span>
+                        </p>
+                    </div>
+                    <div class="logged__profile-div">
+                        <p class="logged__profile__text">
+                            Following: <span id="dom__profile-following"></span>
+                        </p>
+                    </div>
+                </div>
+                <div id="dom__back-img"></div>
+            </div>
+        
+`,
+};
+
+// DOM variables
+let domBackImg = document.querySelector(`#dom__back-img`);
+let domMargin = document.querySelector(".margin");
+
+//Default HTML
+domMargin.innerHTML = htmlObj.part1;
 
 // Function that update status of profile
 const showInformation = (index) => {
@@ -84,6 +257,7 @@ const logIn = () => {
     indexUser = index;
     alert(`Welcome, ${memory[index].name}.`);
 
+    domMargin.innerHTML = htmlObj.part2;
     showInformation(indexUser);
     return;
 };
@@ -160,6 +334,8 @@ const signUp = () => {
 const search = () => {
     let index = -1;
     let email;
+    domBackImg = document.querySelector(`#dom__back-img`);
+    domBackImg.classList.add("logged__back-img");
 
     //Check if User is logged
     const log0 = () => {
@@ -194,11 +370,17 @@ const search = () => {
 
     showInformation(index);
 
-    domBackImg.innerHTML = memory[index].html;
+    console.log(index);
+
+    memory[index].html
+        ? (domBackImg.innerHTML = memory[index].html)
+        : alert("Don't have any image!");
 };
 
 // COMMAND LOG OUT
 const logOut = () => {
+    domBackImg = document.querySelector(`#dom__back-img`);
+
     if (online === false) {
         alert("Sorry, you have to be logged in to use that functionality");
         return;
@@ -211,6 +393,7 @@ const logOut = () => {
     // Remove HTML of the images
     domBackImg.classList.remove("logged__back-img");
     domBackImg.innerHTML = "";
+    domMargin.innerHTML = htmlObj.part1;
     return;
 };
 
@@ -262,6 +445,7 @@ const publish = () => {
 
     const url = document.querySelector("#dom__photo-url").value;
     const desc = document.querySelector("#dom__photo-desc").value;
+    domBackImg = document.querySelector(`#dom__back-img`);
 
     if (memory[indexUser].html) {
         memory[indexUser].html =
@@ -276,6 +460,8 @@ const publish = () => {
     }
 
     if (!memory[indexUser].html) {
+        console.log(domBackImg);
+
         domBackImg.classList.add("logged__back-img");
 
         memory[indexUser].html = `
