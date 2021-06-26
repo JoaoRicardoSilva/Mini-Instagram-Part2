@@ -43,4 +43,6 @@ const commandsSwitch = () => {
             break;
     }
 };
-// commandsSwitch();
+
+// COMMAND EXIT
+const exit = () => alert("You left the program, bye");

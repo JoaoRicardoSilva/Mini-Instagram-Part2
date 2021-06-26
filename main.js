@@ -8,6 +8,7 @@ class User {
         this.password = password;
         this.followers = 0;
         this.following = 0;
+        this.html = null;
     }
 }
 
@@ -22,6 +23,12 @@ let indexUser = -1;
 
 // Generic function for the user give some input
 const askUser = (str) => window.prompt(str);
+
+//
+const domBackImg = document.querySelector("#dom__back-img");
+
+//
+let htmlPart1 = ``;
 
 // Function that update status of profile
 const showInformation = (index) => {
@@ -149,9 +156,6 @@ const signUp = () => {
     return;
 };
 
-// COMMAND EXIT
-const exit = () => alert("You left the program, bye");
-
 // COMMAND SEARCH
 const search = () => {
     let index = -1;
@@ -189,19 +193,24 @@ const search = () => {
     }
 
     showInformation(index);
+
+    domBackImg.innerHTML = memory[index].html;
 };
+
 // COMMAND LOG OUT
 const logOut = () => {
     if (online === false) {
         alert("Sorry, you have to be logged in to use that functionality");
-        alert("");
         return;
     }
 
     online = false;
 
     alert("You logged out, see you later");
-    alert("");
+
+    // Remove HTML of the images
+    domBackImg.classList.remove("logged__back-img");
+    domBackImg.innerHTML = "";
     return;
 };
 
@@ -241,22 +250,72 @@ const follow = () => {
     memory[indexUser].following++;
 
     alert(`You now follow ${memory[index].name}`);
+    showInformation(indexUser);
     return;
 };
 
 const publish = () => {
+    if (indexUser === -1) {
+        alert("Do login first!");
+        return;
+    }
+
     const url = document.querySelector("#dom__photo-url").value;
     const desc = document.querySelector("#dom__photo-desc").value;
-    console.log({ desc });
-    const domBackImg = document.querySelector("#dom__back-img");
 
-    domBackImg.classList.add("logged__back-img");
-    domBackImg.createElement("div").classList.add("logged__img-box");
+    if (memory[indexUser].html) {
+        memory[indexUser].html =
+            `
+            <div class="logged__img-box">
+                <img
+                    src="${url}"
+                    alt=""class="logged__img" />
+                <p class="logged__img-desc">${desc}</p>
+            </div>` + memory[indexUser].html;
+        domBackImg.innerHTML = memory[indexUser].html;
+    }
 
-    document.querySelector("logged__img-box").innerHTML = `
-    <img
-        src="${url}"
-        alt=""class="logged__img" />
-        <p class="logged__img-desc">${desc}</p>`;
+    if (!memory[indexUser].html) {
+        domBackImg.classList.add("logged__back-img");
+
+        memory[indexUser].html = `
+            <div class="logged__img-box">
+            <img
+                src="${url}"
+                alt=""class="logged__img" />
+                <p class="logged__img-desc">${desc}</p>
+                </div>`;
+        domBackImg.innerHTML = memory[indexUser].html;
+    }
     return;
+};
+
+const logInDom = () => {
+    document.querySelector("#initial__sign-up-check").checked = false;
+    document.querySelector("#dom__name-div").classList.add("dom__display-off");
+    document.querySelector("#dom__id-div").classList.add("dom__display-off");
+};
+
+const signUpDom = () => {
+    document.querySelector("#initial__log-in-check").checked = false;
+    document
+        .querySelector("#dom__name-div")
+        .classList.remove("dom__display-off");
+    document.querySelector("#dom__id-div").classList.remove("dom__display-off");
+};
+
+const submit = () => {
+    if (document.querySelector("#initial__sign-up-check").checked) {
+        signUp();
+    }
+
+    if (document.querySelector("#initial__log-in-check").checked) {
+        logIn();
+    }
+};
+
+const myProfile = () => {
+    showInformation(indexUser);
+
+    domBackImg.innerHTML = memory[indexUser].html;
 };

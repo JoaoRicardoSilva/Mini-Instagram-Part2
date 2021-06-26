@@ -99,8 +99,20 @@
             <!-- Logged area -->
             <div class="logged generic__back1">
                 <form action="" class="logged__nav-bar">
-                    <button class="generic__button1">My Profile</button>
-                    <button class="generic__button1">Log Out</button>
+                    <button
+                        class="generic__button1"
+                        type="button"
+                        onclick="myProfile()"
+                    >
+                        My Profile
+                    </button>
+                    <button
+                        class="generic__button1"
+                        type="button"
+                        onclick="logOut()"
+                    >
+                        Log Out
+                    </button>
                 </form>
 
                 <form class="logged__search-bar">
@@ -111,10 +123,18 @@
                         id="dom__search-email"
                     />
                     <div class="logged__search-bar__buttons">
-                        <button class="generic__button1" onclick="search()">
+                        <button
+                            class="generic__button1"
+                            type="button"
+                            onclick="search()"
+                        >
                             Search
                         </button>
-                        <button class="generic__button1" onclick="follow()">
+                        <button
+                            class="generic__button1"
+                            type="button"
+                            onclick="follow()"
+                        >
                             Follow
                         </button>
                     </div>
@@ -165,6 +185,5 @@
             </div>
         </div>
         <script src="/main.js" async defer></script>
-        <script src="/dom.js" async defer></script>
     </body>
 </html>
