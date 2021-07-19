@@ -1,6 +1,16 @@
 "use strict";
 
-// Base class for new Users
+const memory = [];
+
+let online = false;
+
+let indexUser = -1;
+
+let domBackImg = document.querySelector(`#dom__back-img`);
+let domMargin = document.querySelector(".margin");
+
+const askUser = (str) => window.prompt(str);
+
 class User {
     constructor(name, email, password) {
         this.name = name;
@@ -11,18 +21,6 @@ class User {
         this.html = null;
     }
 }
-
-// Memory to save new Users
-const memory = [];
-
-// Online state:
-let online = false;
-
-// Index in the memory for the user that have log
-let indexUser = -1;
-
-// Generic function for the user give some input
-const askUser = (str) => window.prompt(str);
 
 // HTML: part1- login page; part2- profile page
 let htmlObj = {
@@ -196,14 +194,9 @@ let htmlObj = {
 `,
 };
 
-// DOM variables
-let domBackImg = document.querySelector(`#dom__back-img`);
-let domMargin = document.querySelector(".margin");
-
 //Default HTML
 domMargin.innerHTML = htmlObj.part1;
 
-// Function that update status of profile
 const showInformation = (index) => {
     document.querySelector("#dom__profile-name").innerHTML = memory[index].name;
     document.querySelector("#dom__profile-followers").innerHTML =
@@ -212,13 +205,11 @@ const showInformation = (index) => {
         memory[index].following;
 };
 
-// COMMAND LOG IN
 const logIn = () => {
     let index = -1;
     let email;
     let pass;
 
-    //If is someone already online
     if (online) {
         alert("You are already logged in");
         return;
@@ -228,7 +219,6 @@ const logIn = () => {
     email = email.trim();
     pass = document.querySelector("#dom__pass").value;
 
-    // Check if email exist in memory
     const checkEmail = () => {
         for (let i = 0; i < memory.length; i++) {
             if (memory[i].email === email) {
@@ -238,13 +228,11 @@ const logIn = () => {
     };
     checkEmail();
 
-    //If email doesn't exist
     if (index < 0) {
         alert("We don't have that account");
         return;
     }
 
-    //If the password isn't correct
     if (index > -1) {
         if (memory[index].password !== pass) {
             alert("The password is incorrect");
@@ -253,7 +241,7 @@ const logIn = () => {
     }
 
     online = true;
-    //Save outside this function the index in memory of the user that logged
+
     indexUser = index;
     alert(`Welcome, ${memory[index].name}.`);
 
@@ -262,14 +250,12 @@ const logIn = () => {
     return;
 };
 
-// COMMAND SIGN UP
 const signUp = () => {
     let name;
     let email;
     let password = document.querySelector("#dom__pass").value;
     let stop = false;
 
-    //Check if someone is online
     if (online) {
         alert("log out first before you create a new account");
         return true;
@@ -279,13 +265,11 @@ const signUp = () => {
     email = document.querySelector("#dom__email").value.trim("");
 
     let emailLoop = () => {
-        //Command for exit askEmail
         if (/^exit\*/gi.test(email)) {
             stop = true;
             return false;
         }
 
-        //Check if is a valid email
         if (
             !/^([a-zA-Z0-9\_]+\@[a-zA-Z]+\.[a-zA-Z]+\.[a-zA-Z]+)|^([a-zA-Z0-9\_]+\@[a-zA-Z]+\.[a-zA-Z]+)/.test(
                 email
@@ -295,7 +279,6 @@ const signUp = () => {
             return true;
         }
 
-        //Check if email already exist
         const emailExist = () => {
             let n = 0;
             for (let i = 0; i < memory.length; i++) {
@@ -321,7 +304,6 @@ const signUp = () => {
         return;
     }
 
-    // Create a new user based on User class
     const newProfile = new User(name, email, password);
 
     alert("Thank you for your registration, welcome!");
@@ -330,14 +312,12 @@ const signUp = () => {
     return;
 };
 
-// COMMAND SEARCH
 const search = () => {
     let index = -1;
     let email;
     domBackImg = document.querySelector(`#dom__back-img`);
     domBackImg.classList.add("logged__back-img");
 
-    //Check if User is logged
     const log0 = () => {
         if (online === false) {
             alert("Sorry, you have to be logged in to use that functionality");
@@ -350,7 +330,6 @@ const search = () => {
 
     email = document.querySelector("#dom__search-email").value.trim("");
 
-    // Check if email exist in memory
     const checkEmail = () => {
         for (let i = 0; i < memory.length; i++) {
             if (memory[i].email === email) {
@@ -358,7 +337,6 @@ const search = () => {
             }
         }
 
-        //If it doesn't
         if (index < 0) {
             alert("We have no results for that query");
             return true;
@@ -377,7 +355,6 @@ const search = () => {
         : alert("Don't have any image!");
 };
 
-// COMMAND LOG OUT
 const logOut = () => {
     domBackImg = document.querySelector(`#dom__back-img`);
 
@@ -390,14 +367,12 @@ const logOut = () => {
 
     alert("You logged out, see you later");
 
-    // Remove HTML of the images
     domBackImg.classList.remove("logged__back-img");
     domBackImg.innerHTML = "";
     domMargin.innerHTML = htmlObj.part1;
     return;
 };
 
-// COMMAND FOLLOW
 const follow = () => {
     let index = -1;
     let followEmail = document
@@ -409,7 +384,6 @@ const follow = () => {
         return;
     }
 
-    //Check if email already exist
     const emailExist = () => {
         for (let i = 0; i < memory.length; i++) {
             if (memory[i].email === followEmail) {
@@ -426,10 +400,8 @@ const follow = () => {
         return;
     }
 
-    // Add 1 follower to the user that was search
     memory[index].followers++;
 
-    // Add 1 following to the User
     memory[indexUser].following++;
 
     alert(`You now follow ${memory[index].name}`);
